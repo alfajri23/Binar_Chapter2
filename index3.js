@@ -3,6 +3,8 @@ import checkTypeNumber from "./index2.js";
 function checkEmail(email){
     var re = /\S+@\S+\.\S+/;
 
+    //return (email.indexOf('@'));
+
     if(re.test(email)){
         return "VALID"
     }else if(!email){
@@ -10,7 +12,7 @@ function checkEmail(email){
     }else if(!isNaN(email)){
         return "INVALID"
     }
-    else if(email.indexOf('hello') > -1){
+    else if(email.indexOf('@') < 0){
         return "ERROR : Tidak terdeteksi '@'"
     }
     else if(!re.test(email)){
@@ -18,7 +20,9 @@ function checkEmail(email){
     }
 }
 
-// console.log(checkEmail('feri@gmail.com'));
-// console.log(checkEmail('ferigmail.com'));
-// console.log(checkEmail());
+console.log(checkEmail('feri@gmail.com'));
+console.log(checkEmail('feri@gmail.co.id'));
+console.log(checkEmail('ferigmail@gamil'));
+console.log(checkEmail('feri'));
 console.log(checkTypeNumber(checkEmail(3322)));
+console.log(checkEmail());

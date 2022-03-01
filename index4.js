@@ -1,24 +1,3 @@
-function isValidPasswords(givenPassword){
-    let falses = 'false';
-
-    if(!(/[a-z]/.test(givenPassword))){
-        if(givenPassword.length < 8){
-            return `false (Karena ${givenPassword} hanya ${givenPassword.length} huruf)`
-        }else{
-            return `false (Karena ${givenPassword} tidak ada huruf kecil)`
-        }
-    }else if(!(/[A-Z]/.test(givenPassword))){
-        if(givenPassword.length < 8){
-            return `false (Karena ${givenPassword} hanya ${givenPassword.length} huruf)`
-        }else{
-            return `false (Karena ${givenPassword} tidak ada huruf besar)`
-        }
-    }else if(givenPassword.length < 8){
-        return `false (Karena ${givenPassword} hanya ${givenPassword.length} huruf)`
-    }else{
-
-    }
-}
 
 function isValidPassword(givenPassword){
 
@@ -35,4 +14,9 @@ function isValidPassword(givenPassword){
     }
 }
 
+console.log(isValidPassword('Meong129'));
+console.log(isValidPassword('meoag129'));
+console.log(isValidPassword('@hsd'));
+console.log(isValidPassword('Meong2'));
+console.log(isValidPassword(0));
 console.log(isValidPassword());

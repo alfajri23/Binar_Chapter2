@@ -19,9 +19,9 @@ function hitungTotalPenjualan(dataPenjualan){
         }
     })
 
-    result.persentaseKeuntungan = result.totalKeuntungan/result.totalModal * 100;
-
-    //result.totalKeuntungan = result.totalModal - result.totalKeuntungan;
+    result.persentaseKeuntungan = Math.round(result.totalKeuntungan/result.totalModal * 100 ) + '%';
+    result.totalKeuntungan = 'Rp. '+ result.totalKeuntungan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    result.totalModal = 'Rp.'+ result.totalModal.toString().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
     return result;
 }

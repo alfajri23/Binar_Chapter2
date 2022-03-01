@@ -1,4 +1,10 @@
 function getSplitName(personName){
+    if(typeof personName != 'string'){
+        let datas = {
+            Error : 'Error : invlid typedata'
+        }
+        return datas;
+    }
     let result = personName.split(" ");
     let data = {
         firstName :'',
@@ -29,3 +35,7 @@ function getSplitName(personName){
 }
 
 console.log(getSplitName('feri alfajri bagus'))
+console.log(getSplitName('feri alfajri'))
+console.log(getSplitName('feri'))
+console.log(getSplitName('feri alfajri bagus sekali'))
+console.log(getSplitName(0))
