@@ -8,4 +8,6 @@ const checkTypeNumber = (givenNumber) => {
     }
 }
 
-console.log(checkTypeNumber({}));
+export default checkTypeNumber;
+
+//console.log(checkTypeNumber({}));
