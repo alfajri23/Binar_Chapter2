@@ -3,8 +3,6 @@ import checkTypeNumber from "./index2.js";
 function checkEmail(email){
     var re = /\S+@\S+\.\S+/;
 
-    //return (email.indexOf('@'));
-
     if(re.test(email)){
         return "VALID"
     }else if(!email){

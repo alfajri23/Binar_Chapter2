@@ -7,7 +7,40 @@ function hitungTotalPenjualan(dataPenjualan){
         penulisTerlaris : ''
     }
 
+
     let max = 0;
+    let max2 = 0;
+    let datas = [];
+    let data,penulis;
+
+
+    for(let i=0;i<dataPenjualan.length;i++){
+      for(let j=i+1;j<dataPenjualan.length;j++){
+        if(dataPenjualan[i].penulis == dataPenjualan[j].penulis){
+          data = {
+            penulis : dataPenjualan[i].penulis,
+            total : dataPenjualan[i].totalTerjual + dataPenjualan[j].totalTerjual
+          }
+          
+        }else{
+          data = {
+            penulis : dataPenjualan[j].penulis,
+            total : dataPenjualan[j].totalTerjual
+          }
+        }
+        datas.push(data);
+      }
+    }
+
+    datas.forEach( e => {
+        if(max2 < e.total){
+            max2 = e.total;
+            penulis= e.penulis;
+        }
+    })
+
+    //console.log(penulis)
+
 
     dataPenjualan.forEach( e => {
         result.totalKeuntungan += e.totalTerjual * (e.hargaJual-e.hargaBeli);
@@ -15,9 +48,11 @@ function hitungTotalPenjualan(dataPenjualan){
         if(max < e.totalTerjual){
             max = e.totalTerjual;
             result.produkBukuTerlaris = e.namaProduk;
-            result.penulisTerlaris = e.penulis;
+           
         }
     })
+
+    result.penulisTerlaris = penulis;
 
     result.persentaseKeuntungan = Math.round(result.totalKeuntungan/result.totalModal * 100 ) + '%';
     result.totalKeuntungan = 'Rp. '+ result.totalKeuntungan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
